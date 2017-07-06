@@ -18,7 +18,13 @@ class ExampleTest extends DuskTestCase
       $this->browse(function ($browser) {
           $browser->visit('/')
                   -> clickLink('Register')
-                  ->assertSee('Register');
+                  ->assertSee('Register')
+                  ->value('#name','John Doe')
+                  ->value('#email','johndoe@gmail.com')
+                  ->value('#password','testing')
+                  ->value('#password-confirm','testing')
+                  ->click('button[type="submit"]')
+                  ->assertPathIs('/home');
                 }
         );
     }
