@@ -19,5 +19,11 @@ class ExampleTest extends TestCase
         $response = $this->get('/');
 
         $response->assertStatus(200);
+
+        // Laravel 5.4 uses Dusk
+        $this->browse(function ($browser) {
+            $browser->visit('/')
+                    -> assertSee('Laravel');
+                  }
     }
 }
