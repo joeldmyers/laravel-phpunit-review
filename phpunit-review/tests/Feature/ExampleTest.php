@@ -23,7 +23,8 @@ class ExampleTest extends TestCase
         // Laravel 5.4 uses Dusk
         $this->browse(function ($browser) {
             $browser->visit('/')
-                    -> assertSee('Laravel');
+                    -> clickLink('Register')
+                    ->assertSee('Register');
                   }
     }
 }
